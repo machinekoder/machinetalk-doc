@@ -1,0 +1,14 @@
+digraph param_server {
+    rankdir = LR;
+    size = 20;
+    overlap = false;
+    splines = true;
+    bgcolor=transparent;
+    // concentrate = true;
+    node [shape = doublecircle]; Down;
+    node [shape = circle];
+       Down -> Up [label = <Connect<br></br><Font Color="Red">Start<Br></Br></Font><Font Color="Blue">Start Paramcmd Channel<Br></Br>Start Param Channel<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+       Up -> Down [label = <Disconnect<br></br><Font Color="Red">Stop<Br></Br></Font><Font Color="Blue">Stop Paramcmd Channel<Br></Br>Stop Param Channel<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+}

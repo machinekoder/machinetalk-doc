@@ -1,0 +1,34 @@
+digraph config_base {
+    rankdir = LR;
+    size = 20;
+    overlap = false;
+    splines = true;
+    bgcolor=transparent;
+    // concentrate = true;
+    node [shape = doublecircle]; Down;
+    node [shape = circle];
+       Down -> Trying [label = <Connect<br></br><Font Color="Red">Start<Br></Br></Font><Font Color="Blue">Add Pins<Br></Br>Start Halrcmd Channel<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+       Trying -> Listing [label = <Config Up<br></br><Font Color="Red">Config State Up<Br></Br></Font><Font Color="Blue">Send Config List Application<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+       Trying -> Down [label = <Disconnect<br></br><Font Color="Red">Stop<Br></Br></Font><Font Color="Blue">Stop Halrcmd Channel<Br></Br>Stop Halrcomp Channel<Br></Br>Unsync Config<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+       Listing -> Up [label = <Application Retrieved<br></br><Font Color="Red">Describe Application Received<Br></Br></Font><Font Color="Blue">Sync Config<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+       Listing -> Trying [label = <Config Trying<br></br><Font Color="Red">Config State Trying<Br></Br></Font><Font Color="Blue">Unsync Config<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+       Listing -> Down [label = <Disconnect<br></br><Font Color="Red">Stop<Br></Br></Font><Font Color="Blue">Stop Halrcmd Channel<Br></Br>Stop Halrcomp Channel<Br></Br>Unsync Config<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+       Up -> Trying [label = <Config Trying<br></br><Font Color="Red">Config State Trying<Br></Br></Font><Font Color="Blue">Unsync Config<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+       Up -> Loading [label = <Load Application<br></br><Font Color="Red">Retrieve Application Sent<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+       Up -> Down [label = <Disconnect<br></br><Font Color="Red">Stop<Br></Br></Font><Font Color="Blue">Stop Halrcmd Channel<Br></Br>Stop Halrcomp Channel<Br></Br>Unsync Config<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+       Loading -> Up [label = <Application Loaded<br></br><Font Color="Red">Application Detail Received<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+       Loading -> Trying [label = <Config Trying<br></br><Font Color="Red">Config State Trying<Br></Br></Font><Font Color="Blue">Unsync Config<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+       Loading -> Down [label = <Disconnect<br></br><Font Color="Red">Stop<Br></Br></Font><Font Color="Blue">Stop Halrcmd Channel<Br></Br>Stop Halrcomp Channel<Br></Br>Unsync Config<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+}

@@ -1,0 +1,28 @@
+digraph sync_client {
+    rankdir = LR;
+    size = 20;
+    overlap = false;
+    splines = true;
+    bgcolor=transparent;
+    // concentrate = true;
+    node [shape = doublecircle]; Down;
+    node [shape = circle];
+       Down -> Trying [label = <Connect<br></br><Font Color="Red">Start<Br></Br></Font><Font Color="Blue">Start Sync Channel<Br></Br>Start Pub Channel<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+       Trying -> Syncing [label = <Sync Up<br></br><Font Color="Red">Sync State Up<Br></Br></Font><Font Color="Blue">Send Sync<Br></Br>Start Sub Channel<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+       Trying -> Down [label = <Disconnect<br></br><Font Color="Red">Stop<Br></Br></Font><Font Color="Blue">Stop Sync Channel<Br></Br>Stop Sub Channel<Br></Br>Stop Pub Channel<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+       Syncing -> Trying [label = <Sync Trying<br></br><Font Color="Red">Sync State Trying<Br></Br></Font><Font Color="Blue">Stop Sub Channel<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+       Syncing -> Synced [label = <Sub Up<br></br><Font Color="Red">Sub State Up<Br></Br></Font><Font Color="Blue">Synced<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+       Syncing -> Down [label = <Disconnect<br></br><Font Color="Red">Stop<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+       Synced -> Syncing [label = <Sub Trying<br></br><Font Color="Red">Sub State Trying<Br></Br></Font><Font Color="Blue">Send Sync<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+       Synced -> Trying [label = <Sync Trying<br></br><Font Color="Red">Sync State Trying<Br></Br></Font><Font Color="Blue">Stop Sub Channel<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+       Synced -> Down [label = <Disconnect<br></br><Font Color="Red">Stop<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+}

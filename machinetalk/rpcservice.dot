@@ -1,0 +1,24 @@
+digraph rpc_service {
+    rankdir = LR;
+    size = 20;
+    overlap = false;
+    splines = true;
+    bgcolor=transparent;
+    // concentrate = true;
+    node [shape = doublecircle]; Down;
+    node [shape = circle];
+       Down -> Up [label = <Connect<br></br><Font Color="Red">Start<Br></Br></Font><Font Color="Blue">Connect Sockets<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+       upping_receivedup [shape = point;
+                       label = "";
+                       margin = 0;
+                       width = 0;
+                       height = 0;
+                       penwidth = 0;
+                       fixedsize = true];
+       Up -> upping_receivedup:n [arrowhead=none];
+       upping_receivedup:s -> Up [label = <Ping Received<br></br><Font Color="Red">Ping Received<Br></Br></Font><Font Color="Blue">Send Ping Acknowledge<Br></Br></Font>>;
+                                    labeltooltip = "Tooltip" ];
+       Up -> Down [label = <Disconnect<br></br><Font Color="Red">Stop<Br></Br></Font><Font Color="Blue">Disconnect Sockets<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+}

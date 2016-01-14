@@ -1,0 +1,20 @@
+digraph command_base {
+    rankdir = LR;
+    size = 20;
+    overlap = false;
+    splines = true;
+    bgcolor=transparent;
+    // concentrate = true;
+    node [shape = doublecircle]; Down;
+    node [shape = circle];
+       Down -> Trying [label = <Connect<br></br><Font Color="Red">Start<Br></Br></Font><Font Color="Blue">Start Command Channel<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+       Trying -> Up [label = <Command Up<br></br><Font Color="Red">Command State Up<Br></Br></Font><Font Color="Blue">Set Connected<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+       Trying -> Down [label = <Disconnect<br></br><Font Color="Red">Stop<Br></Br></Font><Font Color="Blue">Stop Command Channel<Br></Br>Clear Connected<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+       Up -> Trying [label = <Command Trying<br></br><Font Color="Red">Command State Trying<Br></Br></Font><Font Color="Blue">Clear Connected<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+       Up -> Down [label = <Disconnect<br></br><Font Color="Red">Stop<Br></Br></Font><Font Color="Blue">Stop Command Channel<Br></Br>Clear Connected<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+}

@@ -1,0 +1,14 @@
+digraph publish {
+    rankdir = LR;
+    size = 20;
+    overlap = false;
+    splines = true;
+    bgcolor=transparent;
+    // concentrate = true;
+    node [shape = doublecircle]; Down;
+    node [shape = circle];
+       Down -> Up [label = <Connect<br></br><Font Color="Red">Start<Br></Br></Font><Font Color="Blue">Connect Sockets<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+       Up -> Down [label = <Disconnect<br></br><Font Color="Red">Stop<Br></Br></Font><Font Color="Blue">Disconnect Sockets<Br></Br></Font>>;
+                                 labeltooltip = "Tooltip" ];
+}
